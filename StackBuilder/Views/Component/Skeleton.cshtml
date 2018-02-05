@@ -1,0 +1,90 @@
+﻿@model StackBuilder.Models.ComponentModel
+
+@{
+    ViewData["Title"] = "Skeleton";
+}
+
+<h2>Skeleton</h2>
+
+<div>
+    <h4>Skeleton pillar</h4>
+    <hr />
+    <dl class="dl-horizontal"></dl>
+</div>
+
+<div class="row" style="align-content: center; padding-left: 50px">
+    <div style="background-color: #99ccff; height: auto; width: 80%; padding-left: 50px">
+        <br />
+        <div style="font-size: 20px">
+            # comonstack skeleton pillar<br /><br />
+            @{
+        var skeleton = TempData["skeleton"].ToString();
+        string[] componentList = skeleton.Split(",");
+            }
+            <strong>commonstack:</strong><br />
+            <strong>&nbsp;&nbsp;components:</strong><br />
+            @foreach (var item in componentList)
+    {
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;- @item </strong><br />
+
+}
+            <strong>&nbsp;&nbsp;config:</strong><br />
+            @foreach (var item in componentList)
+    {
+        if (item == "gitlab")
+        {
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;gitlab:</strong><br />
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http_port:</strong> <cite><font color="#003300">8080</font></cite><br />
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https_port:</strong> <cite><font color="#003300">8043</font></cite><br />
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ssh_port:</strong> <cite><font color="#003300">8022</font></cite><br />
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git_data:</strong> <cite><font color="#003300">/opt/git_data</font></cite><br />
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:</strong> <cite><font color="#003300">gitlab</font></cite><br />
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart:</strong> <cite><font color="#003300">always</font></cite><br />
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rails:</strong><br />
+            <cite><font color="#003300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- gitlab_rails['smtp_address'] = "smtp.server"</font></cite><br />
+            <cite><font color="#003300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- gitlab_rails['smtp_port'] = 465</font></cite><br />
+}
+if (item == "jenkins")
+{
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;jenkins:</strong><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port:</strong> <cite><font color="#003300">8080</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jenkins_home:</strong> <cite><font color="#003300">/opt/jenkins_data</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:</strong> <cite><font color="#003300">jenkins</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart:</strong> <cite><font color="#003300">unless-stoped</font></cite><br />
+}
+if (item == "nexus")
+{
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;nexus:</strong><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port:</strong> <cite><font color="#003300">8090</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nexus_data:</strong> <cite><font color="#003300">/opt/nexus_data</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:</strong> <cite><font color="#003300">nexus</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart:</strong> <cite><font color="#003300">unless-stoped</font></cite><br />
+}
+if (item == "stackstorm")
+{
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;stackstorm:</strong><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auth_port:</strong> <cite><font color="#003300">9002</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st_data:</strong> <cite><font color="#003300">/opt/stackstorm_data</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:</strong> <cite><font color="#003300">st2</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart:</strong> <cite><font color="#003300">unless-stoped</font></cite><br />
+}
+if (item == "saltstack")
+{
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;saltstack:</strong><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;publish_port:</strong> <cite><font color="#003300">4505</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return_port:</strong> <cite><font color="#003300">4506</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;api_port:</strong> <cite><font color="#003300">/8006</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:</strong> <cite><font color="#003300">salt-master</font></cite><br />
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart:</strong> <cite><font color="#003300">unless-stoped</font></cite><br />
+}
+}
+
+
+        </div>
+    </div>
+</div>
+<div>
+    <br /> 
+    <a asp-action="Index">Back to List</a>
+</div>
+

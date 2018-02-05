@@ -1,0 +1,114 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+/* Table  */
+div.greyGridTable {
+    border: 2px solid #FFFFFF;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    border-collapse: collapse;
+}
+
+.divTable.greyGridTable .divTableCell, .divTable.greyGridTable .divTableHead {
+    border: 1px solid #FFFFFF;
+    padding: 3px 4px;
+}
+
+.divTable.greyGridTable .divTableBody .divTableCell {
+    font-size: 13px;
+}
+
+.divTable.greyGridTable .divTableCell:nth-child(even) {
+    background: #EBEBEB;
+}
+
+.divTable.greyGridTable .divTableHeading {
+    background: #FFFFFF;
+    border-bottom: 4px solid #333333;
+}
+
+    .divTable.greyGridTable .divTableHeading .divTableHead {
+        font-size: 15px;
+        font-weight: bold;
+        color: #333333;
+        text-align: center;
+        vertical-align: middle;
+        border-left: 2px solid #333333;
+    }
+
+        .divTable.greyGridTable .divTableHeading .divTableHead:first-child {
+            border-left: none;
+        }
+
+.greyGridTable .tableFootStyle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    border-top: 4px solid #333333;
+}
+
+.greyGridTable .tableFootStyle {
+    font-size: 14px;
+}
+/* DivTable.com */
+
+.divTable {
+    display: table;
+}
+
+.divTableRow {
+    display: table-row;
+}
+
+.divTableHeading {
+    display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+    display: table-cell;
+}
+
+.divTableHeading {
+    display: table-header-group;
+}
+
+.divTableFoot {
+    display: table-footer-group;
+}
+
+.divTableBody {
+    display: table-row-group;
+}

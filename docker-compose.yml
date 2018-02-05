@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  stackbuilder:
+    image: stackbuilder
+    build:
+      context: .
+      dockerfile: StackBuilder/Dockerfile

@@ -1,0 +1,107 @@
+﻿@model StackBuilder.Models.ComponentModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Skeleton builder</h2>
+Select componts for which you want to build skeleton pillar.
+<br /><br />
+
+@using (Html.BeginForm("Index", "Component"))
+{
+<table class="table">
+    <tr>
+        <th><strong>CI/CD</strong></th>
+        <th><strong>Orchestration</strong></th>
+        <th><strong>Test</strong></th>
+        <th><strong>Monitoring</strong></th>
+        <th><strong>Logging</strong></th>
+        <th><strong>Publish</strong></th>
+    </tr>
+    <tr>
+        <td>
+            @foreach (var item in Model.AvailableComponent.Where(p => p.Group.Name == "build"))
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"
+                               name="SelectedComponent"
+                               value="@item.Value" disabled="@item.Disabled" /> @item.Text
+                        </label>
+                    </div>
+                }
+        </td>
+        <td>
+            @foreach (var item in Model.AvailableComponent.Where(p => p.Group.Name == "orchestration"))
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"
+                               name="SelectedComponent"
+                               value="@item.Value"
+                               disabled="@item.Disabled" /> @item.Text
+                        </label>
+                    </div>
+                }
+        </td>
+        <td>
+            @foreach (var item in Model.AvailableComponent.Where(p => p.Group.Name == "test"))
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"
+                               name="SelectedComponent"
+                               value="@item.Value"
+                               disabled="@item.Disabled" /> @item.Text
+                        </label>
+                    </div>
+                }
+        </td>
+        <td>
+            @foreach (var item in Model.AvailableComponent.Where(p => p.Group.Name == "mon"))
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"
+                               name="SelectedComponent"
+                               value="@item.Value"
+                               disabled="@item.Disabled" /> @item.Text
+                        </label>
+                    </div>
+                }
+        </td>
+        <td>
+            @foreach (var item in Model.AvailableComponent.Where(p => p.Group.Name == "logging"))
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"
+                               name="SelectedComponent"
+                               value="@item.Value"
+                               disabled="@item.Disabled" /> @item.Text
+                        </label>
+                    </div>
+                }
+        </td>
+        <td>
+            @foreach (var item in Model.AvailableComponent.Where(p => p.Group.Name == "publish"))
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"
+                               name="SelectedComponent"
+                               value="@item.Value"
+                               disabled="@item.Disabled" /> @item.Text
+                        </label>
+                    </div>
+                }
+        </td>
+
+    </tr>
+</table>
+<center><input type="submit" class="btn btn-primary" value="Generate skeleton" /></center>
+            
+
+}
+
